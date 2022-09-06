@@ -3,4 +3,4 @@ That's it, there's nothing here really. Gonna learn with Java MOOC: https://java
 You might question my choices, but I don't question my professors.
 Besides, it can't be worse than C++, can it? (<-- clueless)
 
-Here's "funky" in "funky java": https://youtu.be/uNl6Sh01ZIU
+Here's the "funky" in "funky java" btw: https://youtu.be/uNl6Sh01ZIU
