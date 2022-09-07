@@ -1,43 +1,37 @@
-import java.util.ArrayList;
-
 public class Test {
     public static void main(String[] args) {
-        ArrayList<Integer> lista = new ArrayList<>();
-        lista.add(1);
-        lista.add(2);
-        lista.add(3);
-        lista.add(4);
+        int[] lista = new int[10];
+        lista[0]=1;
+        lista[1]=2;
+        lista[2]=3;
+        lista[3]=4;
         print(lista);
-        lista.remove(2); // this will remove element with val of 3
+        lista[4]=5;
+        lista[5]=1;
+        lista[6]=1;
+        lista[7]=1;
+        lista[8]=1; 
         print(lista);
-        lista.add(1);
-        lista.add(1);
-        lista.add(1);
-        lista.add(1);
-        lista.add(1); 
-        // Intriguing! Seems to store them as objects, and doesn't allow such duplicates
-        // As they're the same object with the same reference of smth
-        lista.add(4);
-        lista.remove(Integer.valueOf(4));
-        if(lista.contains(4)){
-            System.out.println("Something went wrong...");
-        } else {
-            System.out.println("All good :+1:, 4 was not found");
-        }
+        //lista.remove(Integer.valueOf(4));
+        //if(lista.contains(4)){
+        //    System.out.println("Something went wrong...");
+        //} else {
+        //    System.out.println("All good :+1:, 4 was not found");
+        //} // no such fun as easily with the default list
         System.out.println(lavg(lista));
     }
-    public static void print(ArrayList<Integer> list) {
-        for (Integer iter : list) {
+    public static void print(int[] list) {
+        for (int iter : list) {
             System.out.println(iter);
         }
     }
-    public static double lavg(ArrayList<Integer> list) {
+    public static double lavg(int[] list) {
         int sum = 0;
-        if(list.size()>0){
+        if(list.length>0){
             for (Integer iter : list) {
                 sum+=iter;
             }
-            return (double) sum / list.size();
+            return (double) sum / list.length;
         } else {
             return -1;
         }
