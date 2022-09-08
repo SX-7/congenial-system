@@ -1,32 +1,24 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.nio.file.Paths;
 
 public class Test {
     public static void main(String[] args) {
-        ArrayList<Person> home = new ArrayList<>();
-        home.add(new Person("BigCheese", 9999));
-        home.add(new Person("SmolCheese", 68));
-        Scanner input = new Scanner(System.in);
-        System.out.println("Input name and age seperated by ',' pass nothing to end");
-        while (true) {
-            String in = input.nextLine();
-            if (!(in.length() == 0)) {
-                if (!(in.contains(","))) {
-                    continue;
-                } else {
-                    String[] res = in.split(",");
-                    home.add(new Person(res[0], Integer.valueOf(res[1])));
-                }
-            } else {
-                print(home);
-                break;
+        ArrayList<String> lines = new ArrayList<>();
+        try (Scanner file = new Scanner(Paths.get("README.md"))) {
+            while (file.hasNextLine()) {
+                String temp = file.nextLine();
+                if (!(temp.isEmpty())){
+                    lines.add(temp);
+                }                
             }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
-    }
-
-    public static void print(ArrayList<Person> ppl){
-        for (Person per : ppl) {
-            System.out.println(per.getName()+" aged "+per.getAge());
+        System.out.println("File contents are:");
+        for (String line : lines) {
+            System.out.println(line);
         }
+        System.out.println("In total "+ lines.size()+" lines");
     }
 }
