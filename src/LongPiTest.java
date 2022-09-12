@@ -1,9 +1,8 @@
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
-import java.sql.Time;
-import java.util.Date;
 import java.util.Random;
 
 public class LongPiTest {
@@ -16,7 +15,7 @@ public class LongPiTest {
     @Test
     public void oneForDot() {
         LongPi test = new LongPi(1);
-        assertEquals(pi, test.get());
+        assertEquals("3.14", test.get().toString());
     }
 
     // test for several randomised inputs
@@ -26,8 +25,7 @@ public class LongPiTest {
         Random gen = new Random(1415926535);
         for (int i = 0; i < 10; i++) {
             int val = gen.nextInt(1, 5000);
-            System.out.println(val);
-            assertEquals(pi.toString().substring(0, val), test.get(val));
+            assertEquals(pi.toString().substring(0, val+1), test.get(val).toString());
         }
     }
 
@@ -39,14 +37,14 @@ public class LongPiTest {
     }
 
     // test for values lower than 1 and decimals
-    @Test
+    @Ignore
     public void improperNumericalInputs() {
         //TODO: success on error throw?
     }
 
     // test for various string inputs
-    @Test
+    @Ignore
     public void improperInputs() {
-
+        //Error testing for that is a little more advanced than what I can do in terms of concepts+syntax
     }
 }
